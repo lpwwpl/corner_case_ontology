@@ -1,0 +1,1825 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/stefi/ontologies/2021/10/21/untitled-ontology-56"
+         xmlns="http://www.semanticweb.org/stefi/ontologies/2021/10/21/untitled-ontology-56#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/stefi/ontologies/2021/10/21/untitled-ontology-56"/>
+
+<owl:ObjectProperty rdf:about="#condition_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#environment_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#event_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_act">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:domain rdf:resource="#Story"/>
+  <rdfs:range rdf:resource="#Act"/>
+  <rdfs:comment>Used to add Act individuals to Story individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_action">
+  <rdfs:subPropertyOf rdf:resource="#event_properties"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:comment>Used to add different Action individuals connection to an Event indvidiual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_asset">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Entities"/>
+  <rdfs:range rdf:resource="#Asset"/>
+  <rdfs:comment>Used to define the asset of an Entity</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_bounding_box">
+  <rdfs:subPropertyOf rdf:resource="#multi_domain_properties"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Bicycle"/>
+        <rdf:Description rdf:about="#EgoVehicle"/>
+        <rdf:Description rdf:about="#Fog"/>
+        <rdf:Description rdf:about="#Pedestrian"/>
+        <rdf:Description rdf:about="#Vehicle"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#BoundingBox"/>
+  <rdfs:comment>Used to add BoundingBox indvidual to a Bicycle, EgoVehicle, Pedestrian, Vehicle or Fog.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_cloud_state">
+  <rdfs:subPropertyOf rdf:resource="#weather_properties"/>
+  <rdfs:domain rdf:resource="#Weather"/>
+  <rdfs:range rdf:resource="#CloudState"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_condition">
+  <rdfs:subPropertyOf rdf:resource="#condition_properties"/>
+  <rdfs:domain rdf:resource="#ConditionGroup"/>
+  <rdfs:range rdf:resource="#Condition"/>
+  <rdfs:comment>Used to add Conditions to a ConditionGroup</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_condition_edge">
+  <rdfs:subPropertyOf rdf:resource="#condition_properties"/>
+  <rdfs:domain rdf:resource="#Condition"/>
+  <rdfs:range rdf:resource="#ConditionEdge"/>
+  <rdfs:comment>Used to add a ConditionEdge to different Conditions</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_condition_group">
+  <rdfs:subPropertyOf rdf:resource="#condition_properties"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#StartTrigger"/>
+        <rdf:Description rdf:about="#StopTrigger"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#ConditionGroup"/>
+  <rdfs:comment>Used to add ConditionGroups to different StartTriggers and StopTriggers</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_condition_rule">
+  <rdfs:subPropertyOf rdf:resource="#condition_properties"/>
+  <rdfs:domain rdf:resource="#Condition"/>
+  <rdfs:range rdf:resource="#ConditionRule"/>
+  <rdfs:comment>Used to add a ConditionRule to the Conditions.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_dynamics_dimension">
+  <rdfs:subPropertyOf rdf:resource="#transition_dynamics_properties"/>
+  <rdfs:domain rdf:resource="#TransitionDynamics"/>
+  <rdfs:range rdf:resource="#DynamicsDimension"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_dynamics_shape">
+  <rdfs:subPropertyOf rdf:resource="#transition_dynamics_properties"/>
+  <rdfs:domain rdf:resource="#TransitionDynamics"/>
+  <rdfs:range rdf:resource="#DynamicsShapes"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_entity">
+  <rdfs:subPropertyOf rdf:resource="#scenario_properties"/>
+  <rdfs:domain rdf:resource="#Scenario"/>
+  <rdfs:range rdf:resource="#Entities"/>
+  <rdfs:comment>Used to add Entity individuals to a Scenario individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_entity_ref">
+  <rdfs:subPropertyOf rdf:resource="#multi_domain_properties"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Action"/>
+        <rdf:Description rdf:about="#ManeuverGroup"/>
+        <rdf:Description rdf:about="#Position"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#Entities"/>
+  <rdfs:comment>Used to set the entity reference of an Action, ManeuverGroup or a Position</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_environment">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#EnvironmentAction"/>
+  <rdfs:range rdf:resource="#Environment"/>
+  <rdfs:comment>Used to add different Environment individuals connection to an EnvironmentAction indvidiual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_event">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:domain rdf:resource="#Maneuver"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:comment>Used to add Event individuals to Maneuver individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_fog">
+  <rdfs:subPropertyOf rdf:resource="#weather_properties"/>
+  <rdfs:domain rdf:resource="#Weather"/>
+  <rdfs:range rdf:resource="#Fog"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_init">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:domain rdf:resource="#Storyboard"/>
+  <rdfs:range rdf:resource="#Init"/>
+  <rdfs:comment>Used for a list of actions initially executed when the enclosing storyboard starts.</rdfs:comment>
+  <rdfs:comment>Used to add Init  individuals to Storyboard individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_init_action">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Init"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#EnvironmentAction"/>
+        <rdf:Description rdf:about="#SpeedAction"/>
+        <rdf:Description rdf:about="#TeleportAction"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:comment>Used for adding Action indviduals to an Init individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_maneuver">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:domain rdf:resource="#ManeuverGroup"/>
+  <rdfs:range rdf:resource="#Maneuver"/>
+  <rdfs:comment>Used to add Maneuver individuals to ManeuverGroup individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_maneuver_group">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:domain rdf:resource="#Act"/>
+  <rdfs:range rdf:resource="#ManeuverGroup"/>
+  <rdfs:comment>Used to add ManeuverGroup individuals to Act individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_orientation">
+  <rdfs:subPropertyOf rdf:resource="#multi_domain_properties"/>
+  <rdfs:domain rdf:resource="#Position"/>
+  <rdfs:range rdf:resource="#Orientation"/>
+  <rdfs:comment>Used to set the Orientation of an Position</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_position">
+  <rdfs:subPropertyOf rdf:resource="#multi_domain_properties"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Position"/>
+  <rdfs:comment>Used to set the Position of an Action</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_precipitation">
+  <rdfs:subPropertyOf rdf:resource="#weather_properties"/>
+  <rdfs:domain rdf:resource="#Weather"/>
+  <rdfs:range rdf:resource="#Precipitation"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_precipitation_type">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Precipitation"/>
+  <rdfs:range rdf:resource="#PrecipitationType"/>
+  <rdfs:comment>Used to add a PrecipiationType individual to a Precipitiation individual.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_priority">
+  <rdfs:subPropertyOf rdf:resource="#event_properties"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Priority"/>
+  <rdfs:comment>Used to a priority individuals connections to an Event indvidiual</rdfs:comment>
+  <rdfs:comment>can be only "overwrite" , "skip" or "parallel"</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_relative_distance_type">
+  <rdfs:subPropertyOf rdf:resource="#relative_distance_condition"/>
+  <rdfs:domain rdf:resource="#RelativeDistanceCondition"/>
+  <rdfs:range rdf:resource="#RelativeDistanceType"/>
+  <rdfs:comment>Used to connect a RelativeDistanceType individual to a RelativeDistanceCondition individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_relative_position_object_reference">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#RelativeObjectPosition"/>
+  <rdfs:range rdf:resource="#Entities"/>
+  <rdfs:comment>Used to define an object reference to an Entity for a RelativeObjectPosition individual.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_road_condition">
+  <rdfs:subPropertyOf rdf:resource="#environment_properties"/>
+  <rdfs:domain rdf:resource="#Environment"/>
+  <rdfs:range rdf:resource="#RoadCondition"/>
+  <rdfs:comment>Used to add a RoadCondition individual connection to an Environment indvidiual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_road_network">
+  <rdfs:subPropertyOf rdf:resource="#scenario_properties"/>
+  <rdfs:domain rdf:resource="#Scenario"/>
+  <rdfs:range rdf:resource="#RoadNetwork"/>
+  <rdfs:comment>Used to add RoadNetwork individual to a Scenario individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_start_trigger">
+  <rdfs:subPropertyOf rdf:resource="#multi_domain_properties"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Act"/>
+        <rdf:Description rdf:about="#Event"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#StartTrigger"/>
+  <rdfs:comment>Used to add StartTrigger indivdual property assertion to an Act or an Event individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_state">
+  <rdfs:subPropertyOf rdf:resource="#storyboard_element_state_condition"/>
+  <rdfs:domain rdf:resource="#StoryboardElementStateCondition"/>
+  <rdfs:range rdf:resource="#State"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_stop_trigger">
+  <rdfs:subPropertyOf rdf:resource="#multi_domain_properties"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Act"/>
+        <rdf:Description rdf:about="#Story"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#StopTrigger"/>
+  <rdfs:comment>Used to add StopTrigger indivdual property assertion to an Act or a Story individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_story">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:domain rdf:resource="#Storyboard"/>
+  <rdfs:range rdf:resource="#Story"/>
+  <rdfs:comment>Used to add Story individuals to Storyboard individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_storyboard">
+  <rdfs:subPropertyOf rdf:resource="#main_part_properties"/>
+  <rdfs:subPropertyOf rdf:resource="#scenario_properties"/>
+  <rdfs:domain rdf:resource="#Scenario"/>
+  <rdfs:range rdf:resource="#Storyboard"/>
+  <rdfs:comment>Used to add Storyboard individuals to Scenario individuals</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_storyboard_element_ref">
+  <rdfs:subPropertyOf rdf:resource="#storyboard_element_state_condition"/>
+  <rdfs:domain rdf:resource="#StoryboardElementStateCondition"/>
+  <rdfs:range rdf:resource="#Entities"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_storyboard_element_type">
+  <rdfs:subPropertyOf rdf:resource="#storyboard_element_state_condition"/>
+  <rdfs:domain rdf:resource="#StoryboardElementStateCondition"/>
+  <rdfs:comment>Not used, can be derived from code.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_sun">
+  <rdfs:subPropertyOf rdf:resource="#weather_properties"/>
+  <rdfs:domain rdf:resource="#Weather"/>
+  <rdfs:range rdf:resource="#Sun"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_target_reference">
+  <rdfs:subPropertyOf rdf:resource="#relative_distance_condition"/>
+  <rdfs:domain rdf:resource="#RelativeDistanceCondition"/>
+  <rdfs:range rdf:resource="#Entities"/>
+  <rdfs:comment>Used to set a target reference of a RelativeDistanceCondition individual. The target reference is an indvidual of the class Entities</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_time_of_day">
+  <rdfs:subPropertyOf rdf:resource="#environment_properties"/>
+  <rdfs:domain rdf:resource="#Environment"/>
+  <rdfs:range rdf:resource="#TimeOfDay"/>
+  <rdfs:comment>Used to add a TimeOfDay individual connection to an Environment indvidiual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_town">
+  <rdfs:subPropertyOf rdf:resource="#scenario_properties"/>
+  <rdfs:domain rdf:resource="#Scenario"/>
+  <rdfs:range rdf:resource="#Town"/>
+  <rdfs:comment>Used to assign a CARLA Town individual to a Scenario individual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_transition_dynamics">
+  <rdfs:subPropertyOf rdf:resource="#transition_dynamics_properties"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#RelativeLaneChangeAction"/>
+        <rdf:Description rdf:about="#SpeedAction"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#TransitionDynamics"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_weather">
+  <rdfs:subPropertyOf rdf:resource="#environment_properties"/>
+  <rdfs:domain rdf:resource="#Environment"/>
+  <rdfs:range rdf:resource="#Weather"/>
+  <rdfs:comment>Used to add a Weather individual connection to an Environment indvidiual</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#main_part_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#multi_domain_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#relative_distance_condition">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#scenario_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#storyboard_element_state_condition">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#StoryboardElementStateCondition"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#transition_dynamics_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#weather_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#bounding_box_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#fog_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_animation">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_azimuth">
+  <rdfs:subPropertyOf rdf:resource="#sun_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_condition_speed_value">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:comment>for SpeedCondition</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_day">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_delay">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Condition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_distance_value">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_elevation">
+  <rdfs:subPropertyOf rdf:resource="#sun_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_friction_scale_factor">
+  <rdfs:subPropertyOf rdf:resource="#road_condition_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_heading">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_heigth">
+  <rdfs:subPropertyOf rdf:resource="#bounding_box_properties"/>
+  <rdfs:domain rdf:resource="#BoundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_hour">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_intensity">
+  <rdfs:subPropertyOf rdf:resource="#precipitation_properties"/>
+  <rdfs:subPropertyOf rdf:resource="#sun_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_lane_id">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Position"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_length">
+  <rdfs:subPropertyOf rdf:resource="#bounding_box_properties"/>
+  <rdfs:domain rdf:resource="#BoundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_maximumExecutionCount">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:comment>The maximumExecutionCount setting specifies how many times an Event is supposed to run, where the number of runs is incremented by one each time the endTransition is reached.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_minute">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_month">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_offset">
+  <rdfs:domain rdf:resource="#Position"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_pitch">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_road_id">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_roll">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_s">
+  <rdfs:domain rdf:resource="#Position"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_second">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_simulation_time_condition">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_target_lane_id">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_target_speed">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#SpeedAction"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_traveled_distance_value">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:comment>For TraveledDistanceCondition</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_value"/>
+
+<owl:DatatypeProperty rdf:about="#has_visual_range">
+  <rdfs:subPropertyOf rdf:resource="#fog_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_width">
+  <rdfs:subPropertyOf rdf:resource="#bounding_box_properties"/>
+  <rdfs:domain rdf:resource="#BoundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_x">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_x_center">
+  <rdfs:subPropertyOf rdf:resource="#bounding_box_properties"/>
+  <rdfs:domain rdf:resource="#BoundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_y">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_y_center">
+  <rdfs:subPropertyOf rdf:resource="#bounding_box_properties"/>
+  <rdfs:domain rdf:resource="#BoundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_year">
+  <rdfs:subPropertyOf rdf:resource="#time_of_day_properties"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_z">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_z_center">
+  <rdfs:subPropertyOf rdf:resource="#bounding_box_properties"/>
+  <rdfs:domain rdf:resource="#BoundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#precipitation_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#road_condition_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#sun_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#time_of_day_properties">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Act">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_maneuver_group"/>
+          <owl:onClass rdf:resource="#ManeuverGroup"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_stop_trigger"/>
+          <owl:onClass rdf:resource="#StopTrigger"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:comment>A container for maneuver groups. Can be executed several times depending on the user provided settings. New executions are only allowed to start when all contained maneuver groups are in the complete state.</rdfs:comment>
+  <rdfs:comment>Defines the acts of the story.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Action"/>
+
+<owl:Class rdf:about="#AnomalousScenario">
+  <rdfs:subClassOf rdf:resource="#ScenarioLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Asset"/>
+
+<owl:Class rdf:about="#AssignControllerAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BeamBased">
+  <rdfs:subClassOf rdf:resource="#PhysicalLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Bicycle">
+  <rdfs:subClassOf rdf:resource="#Entities"/>
+  <rdfs:comment>Used for cyclist assets and to represent a cyclics</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#BicycleAssets">
+  <rdfs:subClassOf rdf:resource="#Asset"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BoundingBox">
+  <rdfs:subClassOf rdf:resource="#OtherConstants"/>
+  <rdfs:comment>For Assets or Fog</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ByEntityCondition">
+  <rdfs:subClassOf rdf:resource="#Condition"/>
+  <rdfs:comment>A condition that refers to an entity.</rdfs:comment>
+  <rdfs:comment>ByEntityConditions will use the states of instances of Entity to perform the conditional evaluation.</rdfs:comment>
+  <rdfs:comment>example: entity "Car1" has reached laneId 1 roadId 0 s 20</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ByValueCondition">
+  <rdfs:subClassOf rdf:resource="#Condition"/>
+  <rdfs:comment>A condition that refers to a runtime value.</rdfs:comment>
+  <rdfs:comment>ByValueConditions represent logical expressions that are dependent on values not directly related to instances of Entity. For example, these can be scenario states, times or traffic signal information.</rdfs:comment>
+  <rdfs:comment>example: SimulationTime is greater than 5</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#CarAssets">
+  <rdfs:subClassOf rdf:resource="#Asset"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CatalogLocations">
+  <rdfs:subClassOf rdf:resource="#ScenarioElements"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CloudState">
+  <rdfs:subClassOf rdf:resource="#WeatherProperties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CollectiveAnomaly">
+  <rdfs:subClassOf rdf:resource="#SceneLevel"/>
+  <owl:disjointWith rdf:resource="#ContextualAnomaly"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Condition">
+  <rdfs:comment>A condition represents a set of logical expressions that evaluate the relationship of values provided by the user. These values may be entity states, scenario properties, scenario states or external signals. Conditions are the main components in triggers.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConditionEdge">
+  <rdfs:subClassOf rdf:resource="#ConditionProperties"/>
+  <rdfs:comment>Specifies the edge when the condition is evaluated to true (rising, falling, none).</rdfs:comment>
+  <rdfs:comment>falling :	A condition defined with a falling edge shall return true at discrete time t if its logical expression is false at discrete time t and its logical expression was true at discrete time t-ts, where ts is the simulation sampling time.</rdfs:comment>
+  <rdfs:comment>none 	: A condition defined with a 'none' edge shall return true at discrete time t if its logical expression is true at discrete time t.</rdfs:comment>
+  <rdfs:comment>rising 	: A condition defined with a rising edge shall return true at discrete time t if its logical expression is true at discrete time t and its logical expression was false at discrete time t-ts, where ts is the simulation sampling time.</rdfs:comment>
+  <rdfs:comment>risingOrFalling 	: A condition defined with a 'risingOrFalling' edge shall return true at discrete time t if its logical expression is true at discrete time t and its logical expression was false at discrete time t-ts OR if its logical expression is false at discrete time t and its logical expression was true at discrete time t-ts. ts is the simulation sampling time.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConditionGroup">
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_condition"/>
+      <owl:onClass rdf:resource="#Condition"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:comment>A condition group is an association of conditions that is assessed during simulation time and signals true when all associated conditions are evaluated to true.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConditionProperties">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ConditionRule">
+  <rdfs:subClassOf rdf:resource="#ConditionProperties"/>
+  <rdfs:comment>Rules (operators) used to compare quantitative variables or signals.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ContentLayer">
+  <rdfs:subClassOf rdf:resource="#CornerCase"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ContextualAnomaly">
+  <rdfs:subClassOf rdf:resource="#SceneLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CornerCase"/>
+
+<owl:Class rdf:about="#DomainLevel">
+  <rdfs:subClassOf rdf:resource="#ContentLayer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DomainShift">
+  <rdfs:subClassOf rdf:resource="#DomainLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DynamicsDimension">
+  <rdfs:subClassOf rdf:resource="#TransitionDynamicsProperties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DynamicsShapes">
+  <rdfs:subClassOf rdf:resource="#TransitionDynamicsProperties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EgoVehicle">
+  <rdfs:subClassOf rdf:resource="#Entities"/>
+  <rdfs:comment>The EgoVehicle in the Scenario.
+ego_vehicle is the default individual. used as an agent.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Entities">
+  <rdfs:subClassOf rdf:resource="#ScenarioElements"/>
+  <rdfs:comment>Definition of entities (scenario objects or entity selections) in a scenario.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#EntityAction">
+  <rdfs:subClassOf rdf:resource="#GlobalAction"/>
+  <owl:disjointWith rdf:resource="#EnvironmentAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EntityTrigger">
+  <rdfs:subClassOf rdf:resource="#Triggers"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Environment">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_road_condition"/>
+          <owl:onClass rdf:resource="#RoadCondition"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_time_of_day"/>
+          <owl:onClass rdf:resource="#TimeOfDay"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_weather"/>
+          <owl:onClass rdf:resource="#Weather"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#EnvironmentAction">
+  <rdfs:subClassOf rdf:resource="#GlobalAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EnvironmentElements"/>
+
+<owl:Class rdf:about="#Event">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_action"/>
+          <owl:onClass rdf:resource="#Action"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_priority"/>
+          <owl:onClass rdf:resource="#Priority"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_start_trigger"/>
+          <owl:onClass rdf:resource="#StartTrigger"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:comment>Container for Actions. Its priority settings determine how to interact with other events within the same scope (maneuver).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Fog">
+  <rdfs:subClassOf rdf:resource="#WeatherProperties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GlobalAction">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#HardwareLevel">
+  <rdfs:subClassOf rdf:resource="#SensorLayer"/>
+  <owl:disjointWith rdf:resource="#PhysicalLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Init">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_init_action"/>
+          <owl:onClass rdf:resource="#EnvironmentAction"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_init_action"/>
+          <owl:onClass rdf:resource="#SpeedAction"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_init_action"/>
+          <owl:onClass rdf:resource="#TeleportAction"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#StoryboardElements"/>
+  <rdfs:comment>Defines the actions which are executed during the initialization phase of a scenario.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LaserError">
+  <rdfs:subClassOf rdf:resource="#HardwareLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Maneuver">
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_event"/>
+      <owl:onClass rdf:resource="#Event"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:comment>A container for Events.</rdfs:comment>
+  <rdfs:comment>Maneuver type definitions.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ManeuverGroup">
+  <rdfs:comment>A list of maneuver groups representing the act.</rdfs:comment>
+  <rdfs:comment>Grouping element connecting a set of actors to a set maneuvers. Multiple maneuver groups can run independently in parallel. Maneuvers can be defined or instantiated from a maneuver type in a catalog.</rdfs:comment>
+  <rdfs:comment>has actors(min 0),
+has CatalogReference (min 0)
+has Maneveur(min 0)</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Misc">
+  <rdfs:subClassOf rdf:resource="#Entities"/>
+  <rdfs:comment>Used for static objects</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#NovelScenario">
+  <rdfs:subClassOf rdf:resource="#ScenarioLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ObjectLevel">
+  <rdfs:subClassOf rdf:resource="#ContentLayer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Orientation">
+  <rdfs:subClassOf rdf:resource="#Positions"/>
+  <rdfs:comment>Used for Teleport Actions</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#OtherConstants"/>
+
+<owl:Class rdf:about="#ParameterDeclarations">
+  <rdfs:subClassOf rdf:resource="#ScenarioElements"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Pedestrian">
+  <rdfs:subClassOf rdf:resource="#Entities"/>
+  <rdfs:comment>Used for pedestrian assets</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PedestrianAssets">
+  <rdfs:subClassOf rdf:resource="#Asset"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PhysicalLevel">
+  <rdfs:subClassOf rdf:resource="#SensorLayer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Position">
+  <rdfs:subClassOf rdf:resource="#Positions"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Positions"/>
+
+<owl:Class rdf:about="#Precipitation">
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_precipitation_type"/>
+      <owl:onClass rdf:resource="#PrecipitationType"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#WeatherProperties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PrecipitationType">
+  <rdfs:subClassOf rdf:resource="#OtherConstants"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Priority">
+  <rdfs:subClassOf rdf:resource="#OtherConstants"/>
+  <rdfs:comment>Rules that govern interaction between events that belong to the same maneuver.</rdfs:comment>
+  <rdfs:comment>overwrite : If a starting event has priority Overwrite, all events in running state, within the same scope (maneuver) as the starting event, should be issued a stop command (stop transition).</rdfs:comment>
+  <rdfs:comment>parallel : Execute in parallel to other events.</rdfs:comment>
+  <rdfs:comment>skip : If a starting event has priority Skip, then it will not be ran if there is any other event in the same scope (maneuver) in the running state.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PrivateAction">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RelativeDistanceCondition">
+  <rdfs:subClassOf rdf:resource="#ByEntityCondition"/>
+  <rdfs:comment>The current relative distance of a triggering entity/entities to a reference entity is compared to a given value. The logical operator used for comparison is defined in the rule attribute.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#RelativeDistanceType">
+  <rdfs:subClassOf rdf:resource="#OtherConstants"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RelativeLaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RelativeObjectPosition">
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_relative_position_object_reference"/>
+      <owl:onClass rdf:resource="#Entities"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#Positions"/>
+  <rdfs:comment>Can have has_x, has_y, has_z</rdfs:comment>
+  <rdfs:comment>Default: x = 0, y = 0 , z = 0</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#RelativeSpeedCondition">
+  <rdfs:subClassOf rdf:resource="#ByEntityCondition"/>
+  <rdfs:comment>The current relative speed of a triggering entity/entities to a reference entity is compared to a given value. The logical operator used for the evaluation is defined by the rule attribute.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#RiskyScenario">
+  <rdfs:subClassOf rdf:resource="#ScenarioLevel"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RoadCondition">
+  <rdfs:subClassOf rdf:resource="#EnvironmentElements"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RoadNetwork">
+  <rdfs:subClassOf rdf:resource="#ScenarioElements"/>
+  <rdfs:comment>The road network which provides the base layer (and road-relative coordinate systems) for all scenario elements is defined as a reference to a road network file. This reference is optional; in case it is not specified, an infinite non-inclined plane on level z=0 shall be assumed as base layer. Additionally and optionally, a visual 3D model file can be referenced and any number of signals can be specified.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Scenario">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_entity"/>
+          <owl:onClass rdf:resource="#Entities"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_entity"/>
+          <owl:onClass rdf:resource="#EgoVehicle"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_storyboard"/>
+          <owl:onClass rdf:resource="#Storyboard"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_town"/>
+          <owl:onClass rdf:resource="#Town"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:comment>Top level container containing all scenario elements.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ScenarioElements">
+  <rdfs:comment>Helper class for the overview of scenario elements</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ScenarioLevel">
+  <rdfs:subClassOf rdf:resource="#TemporalLayer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SceneLevel">
+  <rdfs:subClassOf rdf:resource="#ContentLayer"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SensorLayer">
+  <rdfs:subClassOf rdf:resource="#CornerCase"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SimulationTimeCondition">
+  <rdfs:subClassOf rdf:resource="#ByValueCondition"/>
+  <rdfs:comment>Compares the simulation time to the specified value. The logical operator is defined by the rule attribute.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SpeedAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#StartTrigger">
+  <rdfs:subClassOf rdf:resource="#Triggers"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_condition_group"/>
+      <owl:onClass rdf:resource="#ConditionGroup"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:disjointWith rdf:resource="#StopTrigger"/>
+</owl:Class>
+
+<owl:Class rdf:about="#State">
+  <rdfs:subClassOf rdf:resource="#OtherConstants"/>
+</owl:Class>
+
+<owl:Class rdf:about="#StopTrigger">
+  <rdfs:subClassOf rdf:resource="#Triggers"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_condition_group"/>
+      <owl:onClass rdf:resource="#ConditionGroup"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Story">
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_act"/>
+      <owl:onClass rdf:resource="#Act"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#StoryboardElements"/>
+  <rdfs:comment>Grouping of independent executable parts of a scenario. The name of a story must be unique within an OpenSCENARIO file.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Storyboard">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_story"/>
+          <owl:onClass rdf:resource="#Story"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_init"/>
+          <owl:onClass rdf:resource="#Init"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_stop_trigger"/>
+          <owl:onClass rdf:resource="#StopTrigger"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#ScenarioElements"/>
+  <rdfs:comment>Top container for the dynamic content of a scenario.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#StoryboardElementStateCondition">
+  <rdfs:subClassOf rdf:resource="#ByValueCondition"/>
+  <rdfs:comment>Considered true if a referenced storyboard element has reached a given runtime state (standbyState, runningState, completeState) or if the referenced storyboard element undergoes a specific transition (startTransition, stopTransition, endTransition, skipTransition) at a discrete time.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#StoryboardElements"/>
+
+<owl:Class rdf:about="#Sun">
+  <rdfs:subClassOf rdf:resource="#WeatherProperties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TeleportAction">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_orientation"/>
+          <owl:onClass rdf:resource="#Orientation"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_position"/>
+          <owl:onClass rdf:resource="#Position"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TemporalLayer">
+  <rdfs:subClassOf rdf:resource="#CornerCase"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TimeOfDay">
+  <rdfs:subClassOf rdf:resource="#EnvironmentElements"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Town">
+  <rdfs:subClassOf rdf:resource="#OtherConstants"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TransitionDynamics">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_dynamics_dimension"/>
+          <owl:onClass rdf:resource="#DynamicsDimension"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_dynamics_shape"/>
+          <owl:onClass rdf:resource="#DynamicsShapes"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:comment>For different Actions like SpeedAction</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#TransitionDynamicsProperties"/>
+
+<owl:Class rdf:about="#TraveledDistanceCondition">
+  <rdfs:subClassOf rdf:resource="#ByEntityCondition"/>
+  <rdfs:comment>Logical expression in condition becomes true after the triggering entity/entities have traveled the given distance.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Triggers">
+  <rdfs:comment>A trigger is then defined as an association of condition groups. A trigger evaluates to true if at least one of the associated condition groups evaluates to true, otherwise it evaluates to false (OR operation).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ValueTrigger">
+  <rdfs:subClassOf rdf:resource="#Triggers"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Vehicle">
+  <rdfs:subClassOf rdf:resource="#Entities"/>
+  <rdfs:comment>Used for vehicle assets. i.e car, van</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Weather">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_cloud_state"/>
+          <owl:onClass rdf:resource="#CloudState"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_fog"/>
+          <owl:onClass rdf:resource="#Fog"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_precipitation"/>
+          <owl:onClass rdf:resource="#Precipitation"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_sun"/>
+          <owl:onClass rdf:resource="#Sun"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#EnvironmentElements"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WeatherProperties"/>
+
+<Town rdf:about="#Town01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Town>
+
+<Town rdf:about="#Town02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Town>
+
+<Town rdf:about="#Town03">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Town>
+
+<Town rdf:about="#Town04">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Town>
+
+<RelativeDistanceType rdf:about="#cartesianDistance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RelativeDistanceType>
+
+<CloudState rdf:about="#cloudy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CloudState>
+
+<State rdf:about="#completeState">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<DynamicsShapes rdf:about="#cubic">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsShapes>
+
+<EnvironmentAction rdf:about="#def_env_action">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_environment rdf:resource="#def_environment"/>
+</EnvironmentAction>
+
+<Environment rdf:about="#def_environment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_road_condition rdf:resource="#def_road_condition"/>
+  <has_time_of_day rdf:resource="#def_time_of_day"/>
+  <has_weather rdf:resource="#def_weather_sunny"/>
+</Environment>
+
+<Fog rdf:about="#def_fog">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_bounding_box rdf:resource="#def_fog_bounding_box"/>
+  <has_visual_range rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</has_visual_range>
+</Fog>
+
+<BoundingBox rdf:about="#def_fog_bounding_box">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_heigth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_heigth>
+  <has_length rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_length>
+  <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_width>
+  <has_x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_x_center>
+  <has_y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_y_center>
+  <has_z_center rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_z_center>
+</BoundingBox>
+
+<Precipitation rdf:about="#def_precipitation_dry">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_precipitation_type rdf:resource="#dry"/>
+  <has_intensity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_intensity>
+</Precipitation>
+
+<RoadCondition rdf:about="#def_road_condition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_friction_scale_factor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_friction_scale_factor>
+</RoadCondition>
+
+<Sun rdf:about="#def_sun">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_azimuth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_azimuth>
+  <has_elevation rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.3</has_elevation>
+  <has_intensity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8</has_intensity>
+</Sun>
+
+<TimeOfDay rdf:about="#def_time_of_day">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_animation>false</has_animation>
+  <has_day rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_day>
+  <has_hour rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</has_hour>
+  <has_minute rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</has_minute>
+  <has_month rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</has_month>
+  <has_second rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</has_second>
+  <has_year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2022</has_year>
+</TimeOfDay>
+
+<Weather rdf:about="#def_weather_sunny">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_cloud_state rdf:resource="#free"/>
+  <has_fog rdf:resource="#def_fog"/>
+  <has_precipitation rdf:resource="#def_precipitation_dry"/>
+  <has_sun rdf:resource="#def_sun"/>
+</Weather>
+
+<DynamicsDimension rdf:about="#distance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsDimension>
+
+<PrecipitationType rdf:about="#dry">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PrecipitationType>
+
+<BoundingBox rdf:about="#ego_tesla_bounding_box">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_heigth rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.8</has_heigth>
+  <has_length rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</has_length>
+  <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.1</has_width>
+  <has_x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.5</has_x_center>
+  <has_y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</has_y_center>
+  <has_z_center rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.9</has_z_center>
+</BoundingBox>
+
+<EgoVehicle rdf:about="#ego_vehicle">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_asset rdf:resource="#vehicle.tesla.model3"/>
+  <has_bounding_box rdf:resource="#ego_tesla_bounding_box"/>
+</EgoVehicle>
+
+<State rdf:about="#endTransition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<ConditionRule rdf:about="#equalTo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionRule>
+
+<RelativeDistanceType rdf:about="#euclidianDistance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RelativeDistanceType>
+
+<ConditionEdge rdf:about="#falling">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionEdge>
+
+<CloudState rdf:about="#free">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CloudState>
+
+<ConditionRule rdf:about="#greaterOrEqual">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionRule>
+
+<ConditionRule rdf:about="#greaterThan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionRule>
+
+<RelativeDistanceType rdf:about="#lateral">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RelativeDistanceType>
+
+<ConditionRule rdf:about="#lessEqual">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionRule>
+
+<ConditionRule rdf:about="#lessThan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionRule>
+
+<DynamicsShapes rdf:about="#linear">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsShapes>
+
+<RelativeDistanceType rdf:about="#longitudinal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RelativeDistanceType>
+
+<ConditionEdge rdf:about="#none">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionEdge>
+
+<ConditionRule rdf:about="#notEqualTo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionRule>
+
+<CloudState rdf:about="#overcast">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CloudState>
+
+<Priority rdf:about="#overwrite">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Priority>
+
+<Priority rdf:about="#parallel">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Priority>
+
+<PrecipitationType rdf:about="#rain">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PrecipitationType>
+
+<CloudState rdf:about="#rainy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CloudState>
+
+<DynamicsDimension rdf:about="#rate">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsDimension>
+
+<ConditionEdge rdf:about="#rising">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionEdge>
+
+<ConditionEdge rdf:about="#risingOrFalling">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ConditionEdge>
+
+<State rdf:about="#runningState">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<DynamicsShapes rdf:about="#sinusoidal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsShapes>
+
+<Priority rdf:about="#skip">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Priority>
+
+<CloudState rdf:about="#skyOff">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CloudState>
+
+<PrecipitationType rdf:about="#snow">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PrecipitationType>
+
+<State rdf:about="#standbyState">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<State rdf:about="#startTransition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<DynamicsShapes rdf:about="#step">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsShapes>
+
+<State rdf:about="#stopTransition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</State>
+
+<DynamicsDimension rdf:about="#time">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DynamicsDimension>
+
+<BicycleAssets rdf:about="#vehicle.diamondback.century">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment>bicycle</rdfs:comment>
+</BicycleAssets>
+
+<CarAssets rdf:about="#vehicle.tesla.model3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CarAssets>
+
+<CarAssets rdf:about="#vehicle.volkswagen.t2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CarAssets>
+
+<Asset rdf:about="#vehicle_volkswagen_t2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Asset>
+
+<PedestrianAssets rdf:about="#walker.pedestrian.0001">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PedestrianAssets>
+
+<PedestrianAssets rdf:about="#walker.pedestrian.0002">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PedestrianAssets>
+
+<TransitionDynamics rdf:about="#indiv_15TransitionDynamics">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_dynamics_shape rdf:resource="#step"/>
+  <has_dynamics_dimension rdf:resource="#time"/>
+  <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_value>
+</TransitionDynamics>
+
+<BoundingBox rdf:about="#indiv_cut_inBoundingBox">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_heigth rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_heigth>
+  <has_length rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_length>
+  <has_width rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_width>
+  <has_x_center rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_x_center>
+  <has_y_center rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_y_center>
+  <has_z_center rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</has_z_center>
+</BoundingBox>
+
+<Vehicle rdf:about="#indiv__cutInCar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_asset rdf:resource="#vehicle_tesla_model3"/>
+  <has_bounding_box rdf:resource="#indiv_cut_inBoundingBox"/>
+</Vehicle>
+
+<Asset rdf:about="#vehicle_tesla_model3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Asset>
+
+<SpeedAction rdf:about="#indiv_EgoSpeedAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#ego_vehicle"/>
+  <has_transition_dynamics rdf:resource="#indiv_15TransitionDynamics"/>
+  <has_target_speed rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16.6666</has_target_speed>
+</SpeedAction>
+
+<SpeedAction rdf:about="#indiv_CutInSpeedAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#indiv__cutInCar"/>
+  <has_transition_dynamics rdf:resource="#indiv_15TransitionDynamics"/>
+  <has_target_speed rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22.222222</has_target_speed>
+</SpeedAction>
+
+<TeleportAction rdf:about="#indiv_EgoTeleportAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_position rdf:resource="#indiv_EgoPosition"/>
+  <has_entity_ref rdf:resource="#ego_vehicle"/>
+</TeleportAction>
+
+<Position rdf:about="#indiv_EgoPosition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_lane_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</has_lane_id>
+  <has_s rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</has_s>
+  <has_offset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_offset>
+  <has_road_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</has_road_id>
+</Position>
+
+<TeleportAction rdf:about="#indiv_CutInTeleportAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_position rdf:resource="#indiv_CutInPosition"/>
+  <has_entity_ref rdf:resource="#indiv__cutInCar"/>
+</TeleportAction>
+
+<Position rdf:about="#indiv_CutInPosition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_lane_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</has_lane_id>
+  <has_s rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</has_s>
+  <has_offset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_offset>
+  <has_road_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</has_road_id>
+</Position>
+
+<Init rdf:about="#indiv_Init">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_init_action rdf:resource="#indiv_EgoSpeedAction"/>
+  <has_init_action rdf:resource="#indiv_CutInSpeedAction"/>
+  <has_init_action rdf:resource="#indiv_EgoTeleportAction"/>
+  <has_init_action rdf:resource="#indiv_CutInTeleportAction"/>
+  <has_init_action rdf:resource="#def_env_action"/>
+</Init>
+
+<TransitionDynamics rdf:about="#indiv_LaneTransitionDynamics">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_dynamics_shape rdf:resource="#cubic"/>
+  <has_dynamics_dimension rdf:resource="#distance"/>
+  <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</has_value>
+</TransitionDynamics>
+
+<RelativeLaneChangeAction rdf:about="#indiv_CutInRelativeLaneChangeAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#indiv__cutInCar"/>
+  <has_transition_dynamics rdf:resource="#indiv_LaneTransitionDynamics"/>
+  <has_target_lane_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_target_lane_id>
+  <has_offset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_offset>
+</RelativeLaneChangeAction>
+
+<RelativeLaneChangeAction rdf:about="#indiv_LeftRelativeLaneChangeAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#indiv__cutInCar"/>
+  <has_transition_dynamics rdf:resource="#indiv_LaneTransitionDynamics"/>
+  <has_target_lane_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</has_target_lane_id>
+  <has_offset rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_offset>
+</RelativeLaneChangeAction>
+
+<SimulationTimeCondition rdf:about="#indiv_zeroSimulationTimeCondition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_edge rdf:resource="#rising"/>
+  <has_condition_rule rdf:resource="#greaterThan"/>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_delay>
+  <has_simulation_time_condition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_simulation_time_condition>
+</SimulationTimeCondition>
+
+<ConditionGroup rdf:about="#indiv_ZeroConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_zeroSimulationTimeCondition"/>
+</ConditionGroup>
+
+<StartTrigger rdf:about="#indiv_ZeroStartTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_ZeroConditionGroup"/>
+</StartTrigger>
+
+<SimulationTimeCondition rdf:about="#indiv_3SimulationTimeCondition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_edge rdf:resource="#rising"/>
+  <has_condition_rule rdf:resource="#greaterThan"/>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_delay>
+  <has_simulation_time_condition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</has_simulation_time_condition>
+</SimulationTimeCondition>
+
+<ConditionGroup rdf:about="#indiv_ThreeConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_3SimulationTimeCondition"/>
+</ConditionGroup>
+
+<StartTrigger rdf:about="#indiv_ThreeStartTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_ThreeConditionGroup"/>
+</StartTrigger>
+
+<RelativeDistanceCondition rdf:about="#indiv_RelativeDistanceCondtion">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_target_reference rdf:resource="#indiv__cutInCar"/>
+  <has_entity_ref rdf:resource="#ego_vehicle"/>
+  <has_condition_rule rdf:resource="#lessThan"/>
+  <has_relative_distance_type rdf:resource="#cartesianDistance"/>
+  <has_condition_edge rdf:resource="#rising"/>
+  <has_distance_value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</has_distance_value>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_delay>
+</RelativeDistanceCondition>
+
+<RelativeDistanceCondition rdf:about="#indiv_StartRelativeDistanceCondtion">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_target_reference rdf:resource="#indiv__cutInCar"/>
+  <has_entity_ref rdf:resource="#ego_vehicle"/>
+  <has_condition_rule rdf:resource="#lessThan"/>
+  <has_relative_distance_type rdf:resource="#cartesianDistance"/>
+  <has_condition_edge rdf:resource="#rising"/>
+  <has_distance_value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</has_distance_value>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_delay>
+</RelativeDistanceCondition>
+
+<ConditionGroup rdf:about="#indiv_DistanceConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_RelativeDistanceCondtion"/>
+</ConditionGroup>
+
+<ConditionGroup rdf:about="#indiv_Distance2ConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_StartRelativeDistanceCondtion"/>
+</ConditionGroup>
+
+<StartTrigger rdf:about="#indiv_DistanceTriggerStartTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_DistanceConditionGroup"/>
+</StartTrigger>
+
+<StartTrigger rdf:about="#indiv_DistanceTrigger2StartTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_Distance2ConditionGroup"/>
+</StartTrigger>
+
+<Event rdf:about="#indiv_CutInEvent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_priority rdf:resource="#overwrite"/>
+  <has_start_trigger rdf:resource="#indiv_DistanceTriggerStartTrigger"/>
+  <has_action rdf:resource="#indiv_CutInRelativeLaneChangeAction"/>
+</Event>
+
+<StoryboardElementStateCondition rdf:about="#indiv_cut_in_eventStoryboardElementStateCondition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_state rdf:resource="#completeState"/>
+  <has_storyboard_element_ref rdf:resource="#indiv_CutInEvent"/>
+  <has_condition_edge rdf:resource="#none"/>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_delay>
+</StoryboardElementStateCondition>
+
+<TraveledDistanceCondition rdf:about="#indiv_70TraveledDistanceCondition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#indiv__cutInCar"/>
+  <has_condition_edge rdf:resource="#none"/>
+  <has_traveled_distance_value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</has_traveled_distance_value>
+</TraveledDistanceCondition>
+
+<ConditionGroup rdf:about="#indiv_completeStateConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_cut_in_eventStoryboardElementStateCondition"/>
+  <has_condition rdf:resource="#indiv_70TraveledDistanceCondition"/>
+</ConditionGroup>
+
+<StartTrigger rdf:about="#indiv_StateTriggerStartTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_completeStateConditionGroup"/>
+</StartTrigger>
+
+<Event rdf:about="#indiv_CutInLeftEvent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_priority rdf:resource="#overwrite"/>
+  <has_start_trigger rdf:resource="#indiv_StateTriggerStartTrigger"/>
+  <has_action rdf:resource="#indiv_LeftRelativeLaneChangeAction"/>
+</Event>
+
+<SpeedAction rdf:about="#indiv_longerSpeedAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#ego_vehicle"/>
+  <has_transition_dynamics rdf:resource="#indiv_15TransitionDynamics"/>
+  <has_target_speed rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16.6666</has_target_speed>
+</SpeedAction>
+
+<StoryboardElementStateCondition rdf:about="#indiv_KeepLongerStoryboardElementStateCondition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_state rdf:resource="#completeState"/>
+  <has_storyboard_element_ref rdf:resource="#indiv_CutInLeftEvent"/>
+  <has_condition_edge rdf:resource="#none"/>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</has_delay>
+</StoryboardElementStateCondition>
+
+<ConditionGroup rdf:about="#indiv_completeState1ConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_KeepLongerStoryboardElementStateCondition"/>
+</ConditionGroup>
+
+<StartTrigger rdf:about="#indiv_StateTrigger1StartTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_completeState1ConditionGroup"/>
+</StartTrigger>
+
+<Event rdf:about="#indiv_KeepLongerEvent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_priority rdf:resource="#overwrite"/>
+  <has_start_trigger rdf:resource="#indiv_StateTrigger1StartTrigger"/>
+  <has_action rdf:resource="#indiv_longerSpeedAction"/>
+</Event>
+
+<Maneuver rdf:about="#indiv_Maneuver">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_event rdf:resource="#indiv_CutInEvent"/>
+  <has_event rdf:resource="#indiv_CutInLeftEvent"/>
+  <has_event rdf:resource="#indiv_KeepLongerEvent"/>
+</Maneuver>
+
+<ManeuverGroup rdf:about="#indiv_ManeuverGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity_ref rdf:resource="#indiv__cutInCar"/>
+  <has_maneuver rdf:resource="#indiv_Maneuver"/>
+</ManeuverGroup>
+
+<SimulationTimeCondition rdf:about="#indiv_30SimulationTimeCondition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_edge rdf:resource="#rising"/>
+  <has_condition_rule rdf:resource="#greaterThan"/>
+  <has_delay rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</has_delay>
+  <has_simulation_time_condition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</has_simulation_time_condition>
+</SimulationTimeCondition>
+
+<ConditionGroup rdf:about="#indiv_30ConditionGroup">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition rdf:resource="#indiv_30SimulationTimeCondition"/>
+</ConditionGroup>
+
+<StopTrigger rdf:about="#indiv_30StopTrigger">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_condition_group rdf:resource="#indiv_30ConditionGroup"/>
+</StopTrigger>
+
+<Act rdf:about="#indiv_Act">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_maneuver_group rdf:resource="#indiv_ManeuverGroup"/>
+  <has_stop_trigger rdf:resource="#indiv_30StopTrigger"/>
+  <has_start_trigger rdf:resource="#indiv_DistanceTrigger2StartTrigger"/>
+</Act>
+
+<Story rdf:about="#indiv_Story">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_act rdf:resource="#indiv_Act"/>
+  <has_stop_trigger rdf:resource="#indiv_30StopTrigger"/>
+</Story>
+
+<Storyboard rdf:about="#indiv_Storyboard">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_story rdf:resource="#indiv_Story"/>
+  <has_init rdf:resource="#indiv_Init"/>
+</Storyboard>
+
+<Scenario rdf:about="#indiv_Scenario">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_entity rdf:resource="#ego_vehicle"/>
+  <has_entity rdf:resource="#indiv__cutInCar"/>
+  <has_storyboard rdf:resource="#indiv_Storyboard"/>
+  <has_town rdf:resource="#Town04"/>
+</Scenario>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#DomainLevel"/>
+    <rdf:Description rdf:about="#ObjectLevel"/>
+    <rdf:Description rdf:about="#SceneLevel"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#ContentLayer"/>
+    <rdf:Description rdf:about="#SensorLayer"/>
+    <rdf:Description rdf:about="#TemporalLayer"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#BicycleAssets"/>
+    <rdf:Description rdf:about="#CarAssets"/>
+    <rdf:Description rdf:about="#PedestrianAssets"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#AnomalousScenario"/>
+    <rdf:Description rdf:about="#NovelScenario"/>
+    <rdf:Description rdf:about="#RiskyScenario"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>
